@@ -5,8 +5,26 @@ $font-family-sans-serif:
   Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $font-family-serif: "Georgia", "Times New Roman", serif;
 
-$uoc-corporate: #000078;
-$uoc-masterbrand: #73edff;
-$uoc-bg: color.scale($uoc-masterbrand, $lightness: 70%);
+$color-primary: #ff6b35;
+$color-secondary: #1a1a1a;
 
-$mqMinWidth: 420px;
+$color-text: #333;
+$color-caption: #666;
+$color-background: rgb(231, 226, 226);
+
+$button-color: green;
+
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+@mixin tablet {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}

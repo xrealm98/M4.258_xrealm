@@ -10,7 +10,20 @@
  * Write any other JavaScript below
  */
 
-+(function () {
-  const university = "UOC";
-  console.log(`Hello, ${university}!`);
-})();
+function scrollToTop() {
+  const btnToTop = document.getElementById("btnToTop");
+
+  btnToTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+  window.addEventListener("scroll", () => {
+    window.scrollY > 600
+      ? (btnToTop.style.display = "block")
+      : (btnToTop.style.display = "none");
+  });
+}
+
+scrollToTop();

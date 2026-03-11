@@ -1,0 +1,5 @@
+@use "sass:color";
+// Función para oscurecer un color
+@function darkerColor($color, $amount) {
+  @return color.scale($color, $lightness: - $amount);
+}

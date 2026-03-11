@@ -1,4 +1,5 @@
-@use "../variables";
+@use "../variables" as *;
+@use "../functions" as *;
 
 * {
   box-sizing: border-box;
@@ -7,54 +8,205 @@
 body {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
-  padding: 2rem;
-  font-family: variables.$font-family-sans-serif;
+  font-family: $font-family-sans-serif;
   font-size: 16px;
-  line-height: 24px;
-  background-color: variables.$uoc-bg;
-  color: variables.$uoc-corporate;
+  line-height: 1.6;
+  background-color: $color-background;
+  color: $color-text;
 }
 
-.uoc-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 2rem;
-  border-radius: 2rem;
+.hero {
   text-align: center;
-  background-color: #fff;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
 
-.uoc-logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.5rem;
-  max-width: 200px;
-  height: auto;
+  &__title {
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: $color-primary;
 
-  @media (min-width: variables.$mqMinWidth) {
-    max-width: none;
+    @include tablet {
+      font-size: 2.2rem;
+    }
+
+    @include desktop {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.3rem;
+    margin: 1.5rem 0;
+    color: $color-secondary;
+  }
+
+  &__image {
+    display: block;
+    width: calc(100% - 1rem);
+    max-height: 250px;
+    margin: 0.5rem 0.5rem;
+    border-radius: 10px;
+
+    @include tablet {
+      max-height: 350px;
+      width: calc(100% - 2rem);
+      margin: 0.5rem 1rem;
+    }
+
+    @include desktop {
+      width: 90%;
+      max-height: 500px;
+      max-width: 1100px;
+      margin: 1rem auto;
+    }
   }
 }
 
-.uoc-title {
-  font-family: variables.$font-family-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: variables.$uoc-corporate;
+main {
+  flex: 1;
+  margin: 1rem 0.5rem;
 
-  @media (min-width: variables.$mqMinWidth) {
-    font-size: 36px;
+  @include tablet {
+    padding: 2rem 1rem;
+  }
+
+  @include desktop {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
   }
 }
 
-.uoc-footer {
+.section {
+  padding: 0.5rem;
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: $color-primary;
+
+    &--centered {
+      text-align: center;
+    }
+    &--underline {
+      border-bottom: 3px solid $color-primary;
+      padding-bottom: 0.5rem;
+    }
+
+    @include tablet {
+      font-size: 1.8rem;
+      margin: 1.5rem 0;
+    }
+
+    @include desktop {
+      font-size: 2.2rem;
+      margin: 1.5rem 0;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    color: $color-secondary;
+
+    @include tablet {
+      font-size: 1.4rem;
+      margin: 1.5rem 0;
+    }
+
+    @include desktop {
+      font-size: 1.6rem;
+      margin-top: 2.5rem;
+    }
+  }
+
+  &__figure {
+    display: block;
+    margin: 1.5rem auto;
+    width: 95%;
+
+    @include tablet {
+      width: 85%;
+      margin: 2rem auto;
+    }
+
+    @include desktop {
+      width: 100%;
+      margin: 2rem 0;
+    }
+  }
+  &__image {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+
+    @include tablet {
+      max-height: 400px;
+    }
+
+    @include desktop {
+      max-height: 500px;
+    }
+  }
+  &__image-caption {
+    text-align: center;
+    font-size: 0.85rem;
+    margin: 0.5rem 0;
+    color: $color-caption;
+  }
+  &__map {
+    width: 100%;
+    margin: 1.5rem auto;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  &__map iframe {
+    width: 100%;
+    height: 450px;
+  }
+}
+
+.button-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  padding: 0.4rem;
+  font-size: 0.7rem;
+  color: white;
+  background-color: $button-color;
+  z-index: 99;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+
+  &:hover {
+    background-color: darkerColor($button-color, 15%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  @include tablet {
+    padding: 0.5rem;
+    right: 20px;
+    font-size: 1rem;
+  }
+}
+
+.footer {
+  border-top: 1px solid black;
+  width: 100%;
+  padding: 1rem;
   margin-top: 1.5rem;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   text-align: center;
+  color: white;
+  background-color: black;
 }

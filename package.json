@@ -1,15 +1,16 @@
 {
-  "name": "uoc-boilerplate",
+  "name": "m4-258-xrealm",
   "version": "3.13.0",
   "private": true,
-  "description": "Boilerplate for Advanced HTML/CSS Tools UOC students",
+  "description": "M4.258 - Master UOC by Xavier Real.  Based on UOC Advanced HTML/CSS Tools boilerplate.",
   "scripts": {
     "parcel:serve": "parcel -p 8123 --target web",
     "parcel:build": "parcel build --target web --no-source-maps --no-cache",
     "clean": "rimraf dist .cache .cache-loader .parcel-cache",
     "dev": "npm-run-all clean parcel:serve",
-    "build": "npm-run-all clean parcel:build",
-    "test": "echo 'Everything is working as expected ✅\nStart working on your project by running \\033[1mnpm run dev\\033[0m'"
+    "build": "npm-run-all clean stylelint  parcel:build",
+    "test": "echo 'Everything is working as expected ✅\nStart working on your project by running \\033[1mnpm run dev\\033[0m'",
+    "stylelint": "stylelint src/**/*.scss"
   },
   "targets": {
     "web": {
@@ -23,17 +24,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uoc-advanced-html-css/uoc-boilerplate.git"
+    "url": "git+https://github.com/xrealm98/M4.258_xrealm.git"
   },
   "author": {
-    "name": "Jordi Tarrida",
-    "email": "jorditarrida@uoc.edu"
+    "name": "Xavier Real",
+    "email": "xrealm@uoc.edu"
   },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/uoc-advanced-html-css/uoc-boilerplate/issues"
-  },
-  "homepage": "https://github.com/uoc-advanced-html-css/uoc-boilerplate#readme",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.16.3",
     "autoprefixer": "^10.4.24",
@@ -42,6 +39,11 @@
     "postcss-preset-env": "^11.1.2",
     "posthtml-include": "^2.0.1",
     "rimraf": "^6.1.2",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "stylelint-config-recommended-scss": "^17.0.0",
+    "stylelint-scss": "^7.0.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.2.0"
   }
 }
